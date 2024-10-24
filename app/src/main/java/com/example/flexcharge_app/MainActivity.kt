@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -11,19 +13,23 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModel
+import com.example.flexcharge_app.Dilemmas.DilemmaButtons
+import com.example.flexcharge_app.Dilemmas.DilemmasViewModel
 import com.example.flexcharge_app.ui.theme.FLEXCHARGEappTheme
 
-class MainActivity : ComponentActivity() {
+class MainActivity :  {
+    private val viewModel: DilemmasViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             FLEXCHARGEappTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    Column(modifier = Modifier.padding(innerPadding)) {
+                        Greeting(name = "Android")
+                        DilemmaButtons(viewModel = viewModel)
+                    }
                 }
             }
         }
@@ -31,17 +37,15 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun Greeting(name: String) {
+    Text(text = "Hello, $name!")
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun DefaultPreview() {
     FLEXCHARGEappTheme {
-        Greeting("Android")
+        Greeting(name = "Android")
     }
 }
+
