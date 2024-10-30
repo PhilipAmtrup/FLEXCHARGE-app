@@ -81,7 +81,7 @@ fun ForsideScreen() {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Har du brug for hjælp?",
+            text = "Info: Vælg et af punkterne",
             style = MaterialTheme.typography.bodyLarge.copy(fontSize = 20.sp),
             color = Color.Black,
             modifier = Modifier
