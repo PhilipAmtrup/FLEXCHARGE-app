@@ -63,6 +63,7 @@ fun ForsideScreen() {
             color = Color.Black,
             modifier = Modifier
                 .padding(top = 24.dp)
+                .align(Alignment.CenterHorizontally)
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -85,6 +86,7 @@ fun ForsideScreen() {
             color = Color.Black,
             modifier = Modifier
                 .padding(vertical = 8.dp)
+                .align(Alignment.CenterHorizontally)
         )
 
         Spacer(modifier = Modifier.height(16.dp))
