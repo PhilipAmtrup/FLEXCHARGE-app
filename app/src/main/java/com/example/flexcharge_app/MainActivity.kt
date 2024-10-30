@@ -7,17 +7,21 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -99,27 +103,36 @@ fun ForsideScreen() {
 }
 
 @Composable
-fun ButtonRow(text: String, horizontalPadding: Dp) {
-    Button(
-        onClick = { /* Handle button click */ },
+fun ButtonRow(text: String, horizontalPadding: Dp, showArrow: Boolean = true) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = horizontalPadding, vertical = 8.dp)
-            .height(56.dp),
-        colors = androidx.compose.material3.ButtonDefaults.buttonColors(containerColor = Color.White),
-        shape = RoundedCornerShape(16.dp)
+            .height(56.dp)
+            .background(Color.White, RoundedCornerShape(16.dp))
+            .padding(start = 16.dp)
+            .clickable { /* Handle button click */ }
     ) {
         Text(
             text = text,
             color = Color.Black,
             fontSize = 16.sp,
             textAlign = TextAlign.Start,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 16.dp)
+            modifier = Modifier.weight(1f)
         )
+        if (showArrow) {
+            Icon(
+                painter = painterResource(id = R.drawable.button_arrow),
+                contentDescription = null,
+                tint = Color.Black,
+                modifier = Modifier.size(24.dp)
+            )
+        }
     }
+
 }
+
 
 @Preview(showBackground = true)
 @Composable
