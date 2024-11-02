@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -35,6 +37,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.flexcharge_app.ui.Forside.ButtonRow
 import com.example.flexcharge_app.ui.Forside.ForsideScreen
@@ -63,6 +66,7 @@ fun FlexChargeApp() {
 
         val navController = rememberNavController()
         Scaffold(
+            topBar = { TopBar(navController) }
 
 
         ) { innerPadding ->
@@ -75,7 +79,7 @@ fun FlexChargeApp() {
                 composable(Problem200_route) { Problem200() }
 
 
-                // For further destinations, describe them here
+                // For further destinations, add them here
             }
         }
     }
@@ -104,3 +108,19 @@ fun TopBar() {
 }
 */
 
+private val oliveGreen = Color(0xFF808000)
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TopBar(navController: NavController) {
+    TopAppBar(
+        title = { Text("") },
+        navigationIcon = {
+            IconButton(onClick = { navController.popBackStack() }) {
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+            }
+        },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = oliveGreen
+        )
+    )
+}

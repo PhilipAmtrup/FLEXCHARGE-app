@@ -85,10 +85,6 @@ fun Problem200() {
 
 
 
-
-
-
-
         Spacer(modifier = Modifier.height(16.dp))
 
         ButtonRow(
