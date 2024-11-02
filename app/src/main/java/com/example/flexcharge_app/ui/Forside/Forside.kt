@@ -1,5 +1,6 @@
 package com.example.flexcharge_app.ui.Forside
 
+import android.service.autofill.OnClickAction
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -19,18 +20,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.SemanticsActions.OnClick
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.flexcharge_app.R
+import com.example.flexcharge_app.ui.Problem200.Problem200
+import com.example.flexcharge_app.ui.Problem200.Problem200_route
 import com.example.flexcharge_app.ui.theme.FLEXCHARGEappTheme
 
+
+const val Forside_route = "forside"
+
 @Composable
-fun ForsideScreen() {
+fun ForsideScreen(navController: NavController = rememberNavController()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -71,15 +81,32 @@ fun ForsideScreen() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        ButtonRow("Er du ny kunde?", horizontalPadding = 0.dp)
-        ButtonRow("Har problemer med din ladestation?", horizontalPadding = 0.dp)
-        ButtonRow("Har problemer med betaling af opladning?", horizontalPadding = 0.dp)
-        ButtonRow("Har du andre problemer?", horizontalPadding = 0.dp)
+        ButtonRow(
+            "Er du ny kunde?",
+            horizontalPadding = 0.dp ,
+            onClick = {}
+        )
+        ButtonRow(
+            "Har problemer med din ladestation?",
+            horizontalPadding = 0.dp,
+            onClick = {navController.navigate(Problem200_route)}
+        )
+
+        ButtonRow(
+            "Har problemer med betaling af opladning?",
+            horizontalPadding = 0.dp,
+            onClick = {}
+        )
+        ButtonRow(
+            "Har du andre problemer?",
+            horizontalPadding = 0.dp,
+            onClick = {}
+        )
     }
 }
 
 @Composable
-fun ButtonRow(text: String, horizontalPadding: Dp, showArrow: Boolean = true) {
+fun ButtonRow(text: String, horizontalPadding: Dp, showArrow: Boolean = true , onClick : () -> Unit) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
@@ -88,7 +115,7 @@ fun ButtonRow(text: String, horizontalPadding: Dp, showArrow: Boolean = true) {
             .height(56.dp)
             .background(Color.White, RoundedCornerShape(16.dp))
             .padding(start = 16.dp)
-            .clickable { /* Handle button click */ }
+            .clickable { onClick() }
     ) {
         Text(
             text = text,

@@ -37,6 +37,9 @@ import com.example.flexcharge_app.ui.Forside.ButtonRow
 import com.example.flexcharge_app.ui.Forside.ForsideScreen
 import com.example.flexcharge_app.ui.theme.FLEXCHARGEappTheme
 
+const val Problem200_route = "Problem200"
+
+
 @Composable
 fun Problem200() {
     Column(
@@ -45,19 +48,29 @@ fun Problem200() {
             .background(Color(0xFFF5F5F5))
             .padding(vertical = 16.dp)
     ) {
-        TopBar("Problemer med ladestationen")
 
         Text(
-            text = "Har du problemer med din ladestation?",
-            style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
+            text = "Problemer med ladestation",
+            style = MaterialTheme.typography.titleLarge.copy(fontSize = 30.sp),
             color = Color.Black,
             modifier = Modifier
-                .padding(top = 24.dp)
+                .padding(top = 5.dp)
                 .align(Alignment.CenterHorizontally)
         )
 
+        Spacer(modifier = Modifier.height(30.dp))
+
+
+        HorizontalDivider(
+            modifier = Modifier.fillMaxWidth(),
+            thickness = 1.dp,
+            color = Color.Gray
+        )
+
+        Spacer(modifier = Modifier.height(25.dp))
+
         Text(
-            text = "Fortæl os nærmere om problemerne ved ladestanderen",
+            text = "Fortæl os nærmere om problemet ved ladestanderen",
             style = MaterialTheme.typography.bodyMedium.copy(
                 fontSize = 22.sp,
                 fontFamily = FontFamily.Default
@@ -70,11 +83,6 @@ fun Problem200() {
 
         Spacer(modifier = Modifier.height(30.dp))
 
-        HorizontalDivider(
-            modifier = Modifier.fillMaxWidth(),
-            thickness = 1.dp,
-            color = Color.Gray
-        )
 
 
 
@@ -83,38 +91,31 @@ fun Problem200() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        ButtonRow("Elbilen melder fejl, hvad gør jeg?", horizontalPadding = 0.dp)
-        ButtonRow("Ladestationen lyser rød, hvad gør jeg?", horizontalPadding = 0.dp)
-        ButtonRow("Jeg kan ikke få ladekablet ud ladestationen...", horizontalPadding = 0.dp)
-        ButtonRow("Jeg har et andet problem...", horizontalPadding = 0.dp)
+        ButtonRow(
+            "Elbilen melder fejl, hvad gør jeg?",
+            horizontalPadding = 0.dp ,
+            onClick = {}
+        )
+        ButtonRow("Ladestationen lyser rød, hvad gør jeg?",
+            horizontalPadding = 0.dp,
+            onClick = {}
+        )
+        ButtonRow(
+            "Jeg kan ikke få ladekablet ud ladestationen...",
+            horizontalPadding = 0.dp,
+            onClick = {}
+        )
+        ButtonRow(
+            "Jeg har et andet problem...",
+            horizontalPadding = 0.dp,
+            onClick = {}
+        )
 
     }
 }
 
 private val oliveGreen = Color(0xFF808000)
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun TopBar(title : String) {
-
-    TopAppBar(
-        title = { Text(text = title , color = Color.Black) },
-        navigationIcon = {
-            IconButton(onClick = {}) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    Color = Color.Black
-                )
-            }
-        },
-
-
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = oliveGreen // sets the background color
-        ),
-        modifier = Modifier.fillMaxWidth()
-    )
-}
 
 @Preview(showBackground = true)
 @Composable
