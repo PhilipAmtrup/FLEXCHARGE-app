@@ -34,6 +34,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.flexcharge_app.R
 import com.example.flexcharge_app.ui.Problem200.Problem200
 import com.example.flexcharge_app.ui.Problem200.Problem200_route
+import com.example.flexcharge_app.ui.Problem300.Problem300
+import com.example.flexcharge_app.ui.Problem300.Problem300_route
 import com.example.flexcharge_app.ui.theme.FLEXCHARGEappTheme
 
 
@@ -45,18 +47,7 @@ fun ForsideScreen(navController: NavController = rememberNavController()) {
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF5F5F5))
-            .padding(vertical = 16.dp)
     ) {
-        Text(
-            text = "Support",
-            style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
-            color = Color.Black,
-            modifier = Modifier
-                .padding(top = 24.dp)
-                .align(Alignment.CenterHorizontally)
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
 
         Image(
             painter = painterResource(id = R.drawable.flexcharger_image),
@@ -95,7 +86,7 @@ fun ForsideScreen(navController: NavController = rememberNavController()) {
         ButtonRow(
             "Har problemer med betaling af opladning?",
             horizontalPadding = 0.dp,
-            onClick = {}
+            onClick = {navController.navigate(Problem300_route)}
         )
         ButtonRow(
             "Har du andre problemer?",

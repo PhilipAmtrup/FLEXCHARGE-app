@@ -47,6 +47,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.flexcharge_app.ui.Problem200.Problem200
 import com.example.flexcharge_app.ui.Problem200.Problem200_route
+import com.example.flexcharge_app.ui.Problem300.Problem300
+import com.example.flexcharge_app.ui.Problem300.Problem300_route
 
 
 class MainActivity : ComponentActivity() {
@@ -63,29 +65,23 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun FlexChargeApp() {
     FLEXCHARGEappTheme {
-
         val navController = rememberNavController()
+
         Scaffold(
             topBar = { TopBar(navController) }
-
-
         ) { innerPadding ->
             NavHost(
                 navController = navController,
                 startDestination = Forside_route,
                 modifier = Modifier.padding(innerPadding)
-            ){
-                composable(Forside_route){ ForsideScreen(navController) }
+            ) {
+                composable(Forside_route) { ForsideScreen(navController) }
                 composable(Problem200_route) { Problem200() }
-
-
-                // For further destinations, add them here
+                composable(Problem300_route) { Problem300() }
             }
         }
     }
-
 }
-
 
 /*
 @Composable
@@ -111,16 +107,16 @@ fun TopBar() {
 private val oliveGreen = Color(0xFF808000)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBar(navController: NavController) {
+fun TopBar(navController:   NavController) {
     TopAppBar(
-        title = { Text("") },
+        title = { Text("Support") },
         navigationIcon = {
             IconButton(onClick = { navController.popBackStack() }) {
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = oliveGreen
+            containerColor = Color.White
         )
     )
 }
