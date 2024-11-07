@@ -49,7 +49,7 @@ fun Problem400() {
             color = Color.Black,
             textAlign = TextAlign.Center,
             modifier = Modifier
-                .padding(top = 20.dp, bottom = 20.dp)
+                .padding(top = 10.dp, bottom = 20.dp)
                 .align(Alignment.CenterHorizontally)
         )
 
