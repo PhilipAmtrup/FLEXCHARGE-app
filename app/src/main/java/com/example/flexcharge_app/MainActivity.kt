@@ -45,6 +45,8 @@ import com.example.flexcharge_app.ui.Forside.Forside_route
 import com.example.flexcharge_app.ui.theme.FLEXCHARGEappTheme
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.flexcharge_app.ui.Problem100.Problem100
+import com.example.flexcharge_app.ui.Problem100.Problem100_route
 import com.example.flexcharge_app.ui.Problem200.Problem200
 import com.example.flexcharge_app.ui.Problem200.Problem200_route
 import com.example.flexcharge_app.ui.Problem300.Problem300
@@ -76,8 +78,10 @@ fun FlexChargeApp() {
                 modifier = Modifier.padding(innerPadding)
             ) {
                 composable(Forside_route) { ForsideScreen(navController) }
+                composable(Problem100_route) { Problem100() }
                 composable(Problem200_route) { Problem200() }
                 composable(Problem300_route) { Problem300() }
+
             }
         }
     }
