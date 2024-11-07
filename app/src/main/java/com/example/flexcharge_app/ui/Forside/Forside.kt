@@ -146,7 +146,10 @@ fun ButtonRow400(text: String, horizontalPadding: Dp, showArrow: Boolean = true,
             color = Color.Black,
             fontSize = 16.sp, // Reduceret tekststørrelse for at passe bedre
             textAlign = TextAlign.Start,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier
+                    .weight(1f)
+                    .padding(start = 8.dp)
+                    .align(Alignment.CenterVertically)
         )
         if (showArrow) {
             Icon(

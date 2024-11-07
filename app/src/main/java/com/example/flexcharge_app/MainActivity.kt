@@ -51,6 +51,8 @@ import com.example.flexcharge_app.ui.Problem200.Problem200
 import com.example.flexcharge_app.ui.Problem200.Problem200_route
 import com.example.flexcharge_app.ui.Problem300.Problem300
 import com.example.flexcharge_app.ui.Problem300.Problem300_route
+import com.example.flexcharge_app.ui.Problem400.Problem400
+import com.example.flexcharge_app.ui.Problem400.Problem400_route
 
 
 class MainActivity : ComponentActivity() {
@@ -81,6 +83,8 @@ fun FlexChargeApp() {
                 composable(Problem100_route) { Problem100() }
                 composable(Problem200_route) { Problem200() }
                 composable(Problem300_route) { Problem300() }
+                composable(Problem400_route) { Problem400() }
+
 
             }
         }

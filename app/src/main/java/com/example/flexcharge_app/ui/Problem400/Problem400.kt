@@ -44,19 +44,19 @@ fun Problem400() {
         )
 
         Text(
-            text = "Hvordan bruger jeg betalingsapp'en?",
+            text = "Jeg har et andet problem",
             style = MaterialTheme.typography.titleLarge.copy(fontSize = 30.sp),
             color = Color.Black,
             textAlign = TextAlign.Center,
             modifier = Modifier
-                .padding(top = 5.dp)
+                .padding(top = 20.dp, bottom = 20.dp)
                 .align(Alignment.CenterHorizontally)
         )
 
 
 
 
-        // Brug ButtonRow med rotation af pilen
+        // Her bruger jeg ButtonRow400 med rotation af pile
         ButtonRow400(
             text = "Beskriv i korte træk hvad dit problem er, så bliver du kontaktet af en servicemedarbejder",
             horizontalPadding = 16.dp,
