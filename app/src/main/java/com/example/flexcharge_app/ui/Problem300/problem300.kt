@@ -3,8 +3,6 @@ package com.example.flexcharge_app.ui.Problem300
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,7 +29,7 @@ fun Problem300() {
     ) {
 
         Image(
-            painter = painterResource(id = R.drawable.sorthvidbillede),
+            painter = painterResource(id = R.drawable.problem300),
             contentDescription = "Billede",
             modifier = Modifier
                 .fillMaxWidth()
