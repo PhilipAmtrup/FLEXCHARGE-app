@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -127,7 +128,38 @@ fun ButtonRow(text: String, horizontalPadding: Dp, showArrow: Boolean = true , o
     }
 
 }
-
+// Tilføjet en ekstra buttonrow så teksten passer bedre ind i boksen (sindsyg lang tekst :D)
+@Composable
+fun ButtonRow400(text: String, horizontalPadding: Dp, showArrow: Boolean = true, rotateArrow: Boolean = false, onClick: () -> Unit) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = horizontalPadding, vertical = 8.dp)
+            .height(80.dp) // Tilpasset højde til `Problem400` for mere plads til teksten
+            .background(Color.White, RoundedCornerShape(16.dp))
+            .clickable { onClick() }
+            .padding(start = 16.dp, end = 8.dp)
+    ) {
+        Text(
+            text = text,
+            color = Color.Black,
+            fontSize = 16.sp, // Reduceret tekststørrelse for at passe bedre
+            textAlign = TextAlign.Start,
+            modifier = Modifier.weight(1f)
+        )
+        if (showArrow) {
+            Icon(
+                painter = painterResource(id = R.drawable.button_arrow),
+                contentDescription = null,
+                tint = Color.Black,
+                modifier = Modifier
+                    .size(20.dp)
+                    .graphicsLayer(rotationZ = if (rotateArrow) 90f else 0f) // Tilføjet rotation baseret på `rotateArrow`
+            )
+        }
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
