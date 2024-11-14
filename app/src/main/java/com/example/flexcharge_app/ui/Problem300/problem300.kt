@@ -1,6 +1,8 @@
 package com.example.flexcharge_app.ui.Problem300
 
 import Problem301_route
+import Problem302_route
+import Problem304_route
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -64,24 +66,24 @@ fun Problem300(navController: NavController) {
 
 
         ButtonRow(
-            "Min FLEXCHARGE App. virker ikke?",
+            "Min FLEXCHARGE APP virker ikke?",
             horizontalPadding = 0.dp,
             onClick = { navController.navigate(Problem301_route) }
         )
         ButtonRow(
             "Betalingen afvises?",
             horizontalPadding = 0.dp,
-            onClick = { /* kode 302 */ }
+            onClick = { navController.navigate(Problem302_route) }
         )
         ButtonRow(
             "Betalingen er godkendt, men opladningen starter ikke?",
             horizontalPadding = 0.dp,
-            onClick = { /* kode 303 */ }
+            onClick = { navController.navigate(Problem304_route) }
         )
         ButtonRow(
             "Jeg har et andet problem?",
             horizontalPadding = 0.dp,
-            onClick = { /*kode 304 */ }
+            onClick = { navController.navigate(Problem305_route) }
         )
     }
 }

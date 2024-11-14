@@ -2,6 +2,10 @@ package com.example.flexcharge_app
 
 import Problem301
 import Problem301_route
+import Problem302
+import Problem302_route
+import Problem304
+import Problem304_route
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -39,6 +43,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.flexcharge_app.ui.Problem300.Problem305
+import com.example.flexcharge_app.ui.Problem300.Problem305_route
 
 
 class MainActivity : ComponentActivity() {
@@ -78,6 +84,9 @@ fun FlexChargeApp() {
                 composable(Problem200_route) { Problem200() }
                 composable(Problem300_route) { Problem300(navController) }  // Sender navController til Problem300
                 composable(Problem301_route) { Problem301() }  // Sender navController til Problem301
+                composable(Problem302_route) { Problem302() }  // Bruger Problem302_route
+                composable(Problem304_route) { Problem304() }  // Bruger Problem302_route
+                composable(Problem305_route) { Problem305() }  // Bruger Problem302_route
             }
 
         }
