@@ -1,5 +1,6 @@
 package com.example.flexcharge_app.ui.Problem300
 
+import Problem301_route
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -14,6 +15,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.flexcharge_app.R
 import com.example.flexcharge_app.ui.Forside.ButtonRow
 import com.example.flexcharge_app.ui.theme.FLEXCHARGEappTheme
@@ -21,7 +24,7 @@ import com.example.flexcharge_app.ui.theme.FLEXCHARGEappTheme
 const val Problem300_route = "Problem300"
 
 @Composable
-fun Problem300() {
+fun Problem300(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -63,7 +66,7 @@ fun Problem300() {
         ButtonRow(
             "Min FLEXCHARGE App. virker ikke?",
             horizontalPadding = 0.dp,
-            onClick = { /* kode 301*/ }
+            onClick = { navController.navigate(Problem301_route) }
         )
         ButtonRow(
             "Betalingen afvises?",
@@ -87,6 +90,6 @@ fun Problem300() {
 @Composable
 fun PreviewProblem300() {
     FLEXCHARGEappTheme {
-        Problem300()
+        Problem300(navController = rememberNavController())
     }
 }

@@ -1,5 +1,7 @@
 package com.example.flexcharge_app
 
+import Problem301
+import Problem301_route
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -38,6 +40,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,8 +76,10 @@ fun FlexChargeApp() {
             ) {
                 composable(Forside_route) { ForsideScreen(navController) }
                 composable(Problem200_route) { Problem200() }
-                composable(Problem300_route) { Problem300() }
+                composable(Problem300_route) { Problem300(navController) }  // Sender navController til Problem300
+                composable(Problem301_route) { Problem301() }  // Sender navController til Problem301
             }
+
         }
     }
 }
@@ -96,7 +101,7 @@ fun TopBar(navController: NavController?, showBackButton: Boolean) {
                     textAlign = TextAlign.Center
                 )
                 if (showBackButton) {
-                    Spacer(modifier = Modifier.weight(0.1f))
+                    Spacer(modifier = Modifier.weight(0.12f))
                 }
             }
         },
