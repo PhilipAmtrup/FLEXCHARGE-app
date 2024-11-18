@@ -1,55 +1,43 @@
-package com.example.flexcharge_app.ui.Forside
+package com.example.flexcharge_app.ui.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.ArrowForward
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.flexcharge_app.R
-import com.example.flexcharge_app.ui.Problem200.Problem200_route
-import com.example.flexcharge_app.ui.Problem300.Problem300_route
-import com.example.flexcharge_app.ui.theme.FLEXCHARGEappTheme
-
-
-const val Forside_route = "forside"
 
 @Composable
-fun ForsideScreen(navController: NavController = rememberNavController()) {
+fun ReusableDilemmaPage(
+    title: String,
+    questions: List<String>,
+    imageRes: Int,
+    onClicks: List<() -> Unit>
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF5F5F5))
     ) {
-
         Image(
-            painter = painterResource(id = R.drawable.flexcharger_image),
-            contentDescription = "Flexcharge Image",
+            painter = painterResource(id = imageRes),
+            contentDescription = "Dilemma Image",
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxWidth()
@@ -60,7 +48,7 @@ fun ForsideScreen(navController: NavController = rememberNavController()) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Info: Vælg et af punkterne",
+            text = title,
             style = MaterialTheme.typography.bodyLarge.copy(fontSize = 20.sp),
             color = Color.Black,
             modifier = Modifier
@@ -70,31 +58,15 @@ fun ForsideScreen(navController: NavController = rememberNavController()) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        ButtonRow(
-            "Er du ny kunde?",
-            horizontalPadding = 0.dp ,
-            onClick = {}
-        )
-        ButtonRow(
-            "Har problemer med din ladestation?",
-            horizontalPadding = 0.dp,
-            onClick = {navController.navigate(Problem200_route)}
-        )
-
-        ButtonRow(
-            "Har problemer med betaling af opladning?",
-            horizontalPadding = 0.dp,
-            onClick = {navController.navigate(Problem300_route)}
-        )
-        ButtonRow(
-            "Har du andre problemer?",
-            horizontalPadding = 0.dp,
-            onClick = {}
-        )
+        questions.forEachIndexed { index, questionText ->
+            ButtonRow(
+                text = questionText,
+                horizontalPadding = 0.dp,
+                onClick = onClicks.getOrElse(index) { {} }
+            )
+        }
     }
 }
-
-
 
 @Composable
 fun ButtonRow(text: String, horizontalPadding: Dp, showArrow: Boolean = true, onClick: () -> Unit) {
@@ -123,14 +95,5 @@ fun ButtonRow(text: String, horizontalPadding: Dp, showArrow: Boolean = true, on
                 modifier = Modifier.size(24.dp)
             )
         }
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewForsideScreen() {
-    FLEXCHARGEappTheme {
-        ForsideScreen()
     }
 }
