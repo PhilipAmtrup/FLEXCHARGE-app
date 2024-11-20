@@ -23,18 +23,30 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.flexcharge_app.R
 
+
 @Composable
 fun ReusableDilemmaPage(
-    title: String,
+    headerTitle: String,       // Title for the header
+    contentTitle: String,      // Title for the content within the page
     questions: List<String>,
     imageRes: Int,
-    onClicks: List<() -> Unit>
+    onClicks: List<() -> Unit>,
+    navController: NavController,
+    startRoute: String
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF5F5F5))
     ) {
+        SimpleHeader(
+            title = headerTitle,
+            navController = navController,
+            startRoute = startRoute
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
         Image(
             painter = painterResource(id = imageRes),
             contentDescription = "Dilemma Image",
@@ -48,7 +60,7 @@ fun ReusableDilemmaPage(
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = title,
+            text = contentTitle,
             style = MaterialTheme.typography.bodyLarge.copy(fontSize = 20.sp),
             color = Color.Black,
             modifier = Modifier

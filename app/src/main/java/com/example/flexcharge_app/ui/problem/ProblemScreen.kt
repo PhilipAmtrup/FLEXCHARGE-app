@@ -15,7 +15,8 @@ class ProblemScreen(private val viewModel: DilemmasViewModel, private val proble
         val dilemma = viewModel.getDilemmaByCode(problemCode)
 
         ReusableDilemmaPage(
-            title = dilemma.title,
+            headerTitle = dilemma.title,
+            contentTitle = "Vælg et af punkterne",
             questions = dilemma.questions.map { it.text },
             imageRes = dilemma.imageRes,
             onClicks = dilemma.questions.map { question ->
@@ -24,7 +25,9 @@ class ProblemScreen(private val viewModel: DilemmasViewModel, private val proble
                         navController.navigate(nextCode)
                     }
                 }
-            }
+            },
+            navController = navController, // Pass the navController
+            startRoute = "Problem_0" // Pass the start route to determine if back button should be shown
         )
     }
 }

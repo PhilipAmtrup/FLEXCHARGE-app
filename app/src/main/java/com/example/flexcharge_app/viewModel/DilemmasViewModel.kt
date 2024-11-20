@@ -22,7 +22,7 @@ class DilemmasViewModel : ViewModel() {
     val dilemmas = listOf(
         Dilemma(
             problemCode = "Problem_0",
-            title = "Vælg et af punkterne",
+            title = "FLEXCHARGE App",
             questions = listOf(
                 Question("Er du ny kunde?", "Problem_1"),
                 Question("Har du problemer med din ladestation?", "Problem_2"),
@@ -34,7 +34,7 @@ class DilemmasViewModel : ViewModel() {
         ),
         Dilemma(
             problemCode = "Problem_1",
-            title = "Vælg et af punkterne",
+            title = "Er du ny kunde?",
             questions = listOf(
                 Question("Hvordan får jeg installeret en ny laderstation?", "Problem_5"),
                 Question("Hvordan bruger jeg betalings app'en?", "Problem 6")
@@ -44,7 +44,7 @@ class DilemmasViewModel : ViewModel() {
         ),
         Dilemma(
             problemCode = "Problem_2",
-            title = "Problemer med ladestation\n Vælg et af punkterne",
+            title = "Har du problemer med din ladestation?",
             questions = listOf(
                 Question("Elbilen melder fejl, hvad gør jeg?", "Problem_6"),
                 Question("Ladestationen lyser rød, hvad gør jeg?", null),
@@ -56,7 +56,7 @@ class DilemmasViewModel : ViewModel() {
         ),
         Dilemma(
             problemCode = "Problem_3",
-            title = "Problemer med din betaling\n Vælg et af punkterne",
+            title = "Har du problemer med betalingen af din opladning?",
             questions = listOf(
                 Question("Min FLEXCHARGE APP virker ikke?", null),
                 Question("Betalingen afvises?", null),
@@ -68,7 +68,7 @@ class DilemmasViewModel : ViewModel() {
         ),
         Dilemma(
             problemCode = "Problem_4",
-            title = "Andet problem",
+            title = "Har du andre problemer?",
             questions = listOf(
                 Question("", null),
                 Question("Reach out for help", null)
