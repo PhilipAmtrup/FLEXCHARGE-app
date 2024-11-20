@@ -7,7 +7,8 @@ data class Dilemma(
     val problemCode: String,
     val title: String,
     val questions: List<Question>,
-    val imageRes: Int
+    val imageRes: Int,
+    val description: String
 )
 
 data class Question(
@@ -28,26 +29,29 @@ class DilemmasViewModel : ViewModel() {
                 Question("Har du problemer med betalingen af din opladning?", "Problem_3"),
                 Question("Har du andre problemer?", "Problem_4")
             ),
+            description = "",
             imageRes = R.drawable.flexcharger_image
         ),
         Dilemma(
             problemCode = "Problem_1",
-            title = "New Customer Information",
+            title = "Vælg et af punkterne",
             questions = listOf(
-                Question("Learn about getting started", null),
-                Question("Contact support", null)
+                Question("Hvordan får jeg installeret en ny laderstation?", "Problem_5"),
+                Question("Hvordan bruger jeg betalings app'en?", "Problem 6")
             ),
+            description = "",
             imageRes = R.drawable.problem300
         ),
         Dilemma(
             problemCode = "Problem_2",
             title = "Problemer med ladestation\n Vælg et af punkterne",
             questions = listOf(
-                Question("Elbilen melder fejl, hvad gør jeg?", null),
+                Question("Elbilen melder fejl, hvad gør jeg?", "Problem_6"),
                 Question("Ladestationen lyser rød, hvad gør jeg?", null),
                 Question("Jeg kan ikke få ladekablet ud af ladestation", null),
                 Question("Jeg har et andet problem", null)
             ),
+            description = "",
             imageRes = R.drawable.problem200
         ),
         Dilemma(
@@ -59,17 +63,46 @@ class DilemmasViewModel : ViewModel() {
                 Question("Betalingen er godkendt, men opladningen starter ikke?", null),
                 Question("Jeg har et andet problem?", null)
             ),
+            description = "",
             imageRes = R.drawable.problem100
         ),
         Dilemma(
             problemCode = "Problem_4",
-            title = "Other Issues",
+            title = "Andet problem",
             questions = listOf(
-                Question("View FAQs", null),
+                Question("", null),
                 Question("Reach out for help", null)
             ),
+            description = "",
             imageRes = R.drawable.problem400
-        )
+        ),
+        Dilemma(
+            problemCode = "Problem_5",
+            title = "Skal være en tekst beskrivelse her",
+            questions = listOf(
+
+            ),
+            description = "",
+            imageRes = R.drawable.flexcharger_image
+        ),
+        Dilemma(
+            problemCode = "Problem_6",
+            title = "El bilen melder fejl",
+            questions = listOf(
+
+            ),
+            description = "Der er pt. ingen driftsforstyrelser, så kontakt venligst din elbilforhandler",
+            imageRes = R.drawable.flexcharger_image
+        ),
+        Dilemma(
+            problemCode = "Problem_7",
+            title = "",
+            questions = listOf(
+
+            ),
+            description = "",
+            imageRes = R.drawable.flexcharger_image
+        ),
     )
 
     fun getDilemmaByCode(problemCode: String): Dilemma {
