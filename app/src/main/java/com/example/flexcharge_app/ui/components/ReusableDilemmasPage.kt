@@ -32,7 +32,8 @@ fun ReusableDilemmaPage(
     imageRes: Int,
     onClicks: List<() -> Unit>,
     navController: NavController,
-    startRoute: String
+    startRoute: String,
+    description: String
 ) {
     Column(
         modifier = Modifier
@@ -66,6 +67,10 @@ fun ReusableDilemmaPage(
             modifier = Modifier
                 .padding(vertical = 8.dp)
                 .align(Alignment.CenterHorizontally)
+        )
+
+        Text(
+            text = description
         )
 
         Spacer(modifier = Modifier.height(16.dp))

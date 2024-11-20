@@ -8,12 +8,15 @@ data class Dilemma(
     val title: String,
     val questions: List<Question>,
     val imageRes: Int,
-    val description: String
+    val description: String,
+    val contentTitle: String
+
 )
 
 data class Question(
     val text: String,
-    val nextProblemCode: String? // The code of the next problem, null if there is no next
+    val nextProblemCode: String?, // The code of the next problem, null if there is no next
+    val goesToSupportForm: Boolean
 )
 
 class DilemmasViewModel : ViewModel() {
@@ -23,11 +26,12 @@ class DilemmasViewModel : ViewModel() {
         Dilemma(
             problemCode = "Problem_0",
             title = "FLEXCHARGE App",
+            contentTitle = "Vælg et af punkterne",
             questions = listOf(
-                Question("Er du ny kunde?", "Problem_1"),
-                Question("Har du problemer med din ladestation?", "Problem_2"),
-                Question("Har du problemer med betalingen af din opladning?", "Problem_3"),
-                Question("Har du andre problemer?", "Problem_4")
+                Question("Er du ny kunde?", "Problem_1", goesToSupportForm = false),
+                Question("Jeg har problemer med min ladestion?", "Problem_2", goesToSupportForm = false),
+                Question("Har du problemer med betalingen af din opladning?", "Problem_3", goesToSupportForm = false),
+                Question("Jeg har et andet problem?", "SupportForm", goesToSupportForm = true)
             ),
             description = "",
             imageRes = R.drawable.flexcharger_image
@@ -35,21 +39,23 @@ class DilemmasViewModel : ViewModel() {
         Dilemma(
             problemCode = "Problem_1",
             title = "Er du ny kunde?",
+            contentTitle = "Vælg et af punkterne",
             questions = listOf(
-                Question("Hvordan får jeg installeret en ny laderstation?", "Problem_5"),
-                Question("Hvordan bruger jeg betalings app'en?", "Problem 6")
+                Question("Hvordan får jeg installeret en ny laderstation?", nextProblemCode = "SupportForm", goesToSupportForm = true),
+                Question("Hvordan bruger jeg betalings app'en?", nextProblemCode = "SupportForm", goesToSupportForm = true)
             ),
             description = "",
-            imageRes = R.drawable.problem300
+            imageRes = R.drawable.flexcharger_image
         ),
         Dilemma(
             problemCode = "Problem_2",
-            title = "Har du problemer med din ladestation?",
+            title = "Jeg har problemer med min ladestation?",
+            contentTitle = "Vælg et af punkterne",
             questions = listOf(
-                Question("Elbilen melder fejl, hvad gør jeg?", "Problem_6"),
-                Question("Ladestationen lyser rød, hvad gør jeg?", null),
-                Question("Jeg kan ikke få ladekablet ud af ladestation", null),
-                Question("Jeg har et andet problem", null)
+                Question("Elbilen melder fejl, hvad gør jeg?", "Problem_6", goesToSupportForm = false),
+                Question("Ladestationen lyser rød, hvad gør jeg?", "SupportForm", goesToSupportForm = true),
+                Question("Jeg kan ikke få ladekablet ud af ladestation", "SupportForm", goesToSupportForm = true),
+                Question("Jeg har et andet problem", "SupportForm", goesToSupportForm = true)
             ),
             description = "",
             imageRes = R.drawable.problem200
@@ -57,32 +63,24 @@ class DilemmasViewModel : ViewModel() {
         Dilemma(
             problemCode = "Problem_3",
             title = "Har du problemer med betalingen af din opladning?",
+            contentTitle = "Vælg et af punkterne",
             questions = listOf(
-                Question("Min FLEXCHARGE APP virker ikke?", null),
-                Question("Betalingen afvises?", null),
-                Question("Betalingen er godkendt, men opladningen starter ikke?", null),
-                Question("Jeg har et andet problem?", null)
+                Question("Min FLEXCHARGE APP virker ikke?", "SupportForm", goesToSupportForm = true),
+                Question("Betalingen afvises?", "Problem_5", goesToSupportForm = false),
+                Question("Betalingen er godkendt, men opladningen starter ikke?", "SupportForm", goesToSupportForm = true),
+                Question("Jeg har et andet problem?", "SupportForm", goesToSupportForm = true)
             ),
             description = "",
             imageRes = R.drawable.problem100
         ),
         Dilemma(
-            problemCode = "Problem_4",
-            title = "Har du andre problemer?",
-            questions = listOf(
-                Question("", null),
-                Question("Reach out for help", null)
-            ),
-            description = "",
-            imageRes = R.drawable.problem400
-        ),
-        Dilemma(
             problemCode = "Problem_5",
-            title = "Skal være en tekst beskrivelse her",
+            title = "Betalingen afvises?",
             questions = listOf(
 
             ),
-            description = "",
+            description = "Vi har pt. ingen driftforstyrelser, så kontakt venligst din bank",
+            contentTitle = "",
             imageRes = R.drawable.flexcharger_image
         ),
         Dilemma(
@@ -92,15 +90,7 @@ class DilemmasViewModel : ViewModel() {
 
             ),
             description = "Der er pt. ingen driftsforstyrelser, så kontakt venligst din elbilforhandler",
-            imageRes = R.drawable.flexcharger_image
-        ),
-        Dilemma(
-            problemCode = "Problem_7",
-            title = "",
-            questions = listOf(
-
-            ),
-            description = "",
+            contentTitle = "",
             imageRes = R.drawable.flexcharger_image
         ),
     )
@@ -109,4 +99,19 @@ class DilemmasViewModel : ViewModel() {
         return dilemmas.firstOrNull { it.problemCode == problemCode }
             ?: dilemmas.first() // Fallback to the first dilemma if not found
     }
+
+    // Function to determine the next route based on the selected question
+    fun getNextRoute(currentProblemCode: String, questionText: String): String? {
+        val currentDilemma = dilemmas.find { it.problemCode == currentProblemCode }
+        val selectedQuestion = currentDilemma?.questions?.find { it.text == questionText }
+
+        return selectedQuestion?.let {
+            if (it.goesToSupportForm) {
+                "SupportForm" // Navigate to the support form
+            } else {
+                it.nextProblemCode // Navigate to the next dilemma page
+            }
+        }
+    }
 }
+

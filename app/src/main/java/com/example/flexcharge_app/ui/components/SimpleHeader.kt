@@ -56,7 +56,7 @@ fun SimpleHeader(
             style = MaterialTheme.typography.titleLarge, // Ensuring it uses consistent typography
             modifier = Modifier
                 .weight(1f) // Take the remaining space to ensure proper alignment
-                .padding(start = if (showBackButton) 8.dp else 0.dp)
+                .padding(start = if (showBackButton) 8.dp else 8.dp)
         )
     }
 }

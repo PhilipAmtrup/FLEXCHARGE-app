@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.flexcharge_app.ui.components.SimpleHeader
+import com.example.flexcharge_app.ui.components.SupportFormScreen
 import com.example.flexcharge_app.ui.problem.ProblemScreen
 import com.example.flexcharge_app.viewModel.DilemmasViewModel
 
@@ -28,5 +29,11 @@ fun NavigationComponent(navController: NavHostController, viewModel: DilemmasVie
                 screen.Content(navController)
             }
         }
+
+        // Add a new route for the SupportFormScreen
+        composable("SupportForm") {
+            SupportFormScreen(navController = navController, startRoute = startRoute)
+        }
+
     }
 }

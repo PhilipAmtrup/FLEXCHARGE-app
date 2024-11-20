@@ -16,13 +16,15 @@ class ProblemScreen(private val viewModel: DilemmasViewModel, private val proble
 
         ReusableDilemmaPage(
             headerTitle = dilemma.title,
-            contentTitle = "Vælg et af punkterne",
+            contentTitle = dilemma.contentTitle,
+            description = dilemma.description,
             questions = dilemma.questions.map { it.text },
             imageRes = dilemma.imageRes,
             onClicks = dilemma.questions.map { question ->
                 {
-                    question.nextProblemCode?.let { nextCode ->
-                        navController.navigate(nextCode)
+                    val nextRoute = viewModel.getNextRoute(problemCode, question.text)
+                    nextRoute?.let {
+                        navController.navigate(it)
                     }
                 }
             },
