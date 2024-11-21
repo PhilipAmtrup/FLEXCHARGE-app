@@ -43,6 +43,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.flexcharge_app.ui.Problem200.problem201
+import com.example.flexcharge_app.ui.Problem200.problem201_route
 import com.example.flexcharge_app.ui.Problem300.Problem305
 import com.example.flexcharge_app.ui.Problem300.Problem305_route
 
@@ -87,6 +89,7 @@ fun FlexChargeApp() {
                 composable(Problem302_route) { Problem302() }  // Bruger Problem302_route
                 composable(Problem304_route) { Problem304() }  // Bruger Problem302_route
                 composable(Problem305_route) { Problem305() }  // Bruger Problem302_route
+                composable(problem201_route) { problem201() }
             }
 
         }

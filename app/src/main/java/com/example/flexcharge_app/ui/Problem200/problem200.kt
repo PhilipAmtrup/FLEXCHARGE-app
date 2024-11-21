@@ -26,12 +26,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.Remeasurement
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.flexcharge_app.R
 import com.example.flexcharge_app.ui.Forside.ButtonRow
 import com.example.flexcharge_app.ui.Forside.ForsideScreen
@@ -41,7 +44,7 @@ const val Problem200_route = "Problem200"
 
 
 @Composable
-fun Problem200() {
+fun Problem200(navController: NavController = rememberNavController()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -90,7 +93,7 @@ fun Problem200() {
         ButtonRow(
             "Elbilen melder fejl, hvad gør jeg?",
             horizontalPadding = 0.dp ,
-            onClick = {}
+            onClick = {navController.navigate(problem201_route)}
         )
         ButtonRow("Ladestationen lyser rød, hvad gør jeg?",
             horizontalPadding = 0.dp,
