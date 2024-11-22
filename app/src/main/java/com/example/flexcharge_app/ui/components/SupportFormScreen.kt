@@ -18,14 +18,21 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.flexcharge_app.R
+import com.example.flexcharge_app.data.model.SupportFormData
+import com.example.flexcharge_app.viewModel.SupportFormViewModel
 
 
 @Composable
-fun SupportFormScreen(navController: NavController, startRoute: String) {
+fun SupportFormScreen(
+    navController: NavController,
+    startRoute: String,
+    viewModel: SupportFormViewModel
+) {
     // States for each text field
     val emailState = remember { mutableStateOf("") }
     val phoneState = remember { mutableStateOf("") }
     val descriptionState = remember { mutableStateOf("") }
+
 
     Column(
         modifier = Modifier
@@ -105,13 +112,22 @@ fun SupportFormScreen(navController: NavController, startRoute: String) {
         // Submit Button
 
         Button(
-            onClick = { /* TODO: Add email sending functionality here */ },
+            onClick = {
+                val formData = SupportFormData(
+                    email = emailState.value,
+                    phoneNumber = phoneState.value,
+                    problemDescription = descriptionState.value
+                )
+
+                // Send data til ViewModel
+                viewModel.saveFormData(formData)
+
+                // Send confirmation email
+                viewModel.sendConfirmationEmail(formData.email)
+            },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            /*colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Blue // Hvis vi vil have farven blå på knappen
-            )*/
+                .padding(horizontal = 16.dp)
         ) {
             Text("Send", fontSize = 18.sp)
         }
