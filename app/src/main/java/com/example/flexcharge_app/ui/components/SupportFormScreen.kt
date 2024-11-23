@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -18,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.flexcharge_app.R
+import com.example.flexcharge_app.ui.components.BottomBarWithLogo
 
 
 @Composable
@@ -26,7 +28,11 @@ fun SupportFormScreen(navController: NavController, startRoute: String) {
     val emailState = remember { mutableStateOf("") }
     val phoneState = remember { mutableStateOf("") }
     val descriptionState = remember { mutableStateOf("") }
-
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFF5F5F5))
+    ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -115,6 +121,12 @@ fun SupportFormScreen(navController: NavController, startRoute: String) {
         ) {
             Text("Send", fontSize = 18.sp)
         }
+    }
+        // Fixed Bottom Bar
+        BottomBarWithLogo(
+            modifier = Modifier
+                .align(Alignment.BottomCenter) // This ensures the bar is fixed at the bottom
+        )
     }
 }
 
