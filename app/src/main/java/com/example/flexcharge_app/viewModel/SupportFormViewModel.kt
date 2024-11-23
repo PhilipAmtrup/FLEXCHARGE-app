@@ -8,15 +8,20 @@ import kotlinx.coroutines.launch
 
 class SupportFormViewModel(private val repository: EmailRepository) : ViewModel() {
 
-    fun saveFormData(data: SupportFormData) {
-        viewModelScope.launch {
-            repository.saveForm(data) // Gem data (lokalt eller backend)
-        }
+    var problemCode: String = ""
+    var description: String = ""
+
+    fun saveProblemDetails(code: String, desc: String) {
+        problemCode = code
+        description = desc
+        println("Saved problem details: code=$problemCode, description=$description")
     }
 
     fun sendConfirmationEmail(email: String) {
+        println("ViewModel attempting to send email to: $email")
         viewModelScope.launch {
-            repository.sendEmail(email)
+            val result = repository.sendEmail(email, problemCode, description)
+            println("Email sent result: $result")
         }
     }
 }

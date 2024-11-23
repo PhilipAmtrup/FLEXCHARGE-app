@@ -120,7 +120,10 @@ fun SupportFormScreen(
                 )
 
                 // Send data til ViewModel
-                viewModel.saveFormData(formData)
+              //  viewModel.saveFormData(formData)
+
+                // Angiv problemCode og problemDescription i ViewModel
+                viewModel.saveProblemDetails("Error123", descriptionState.value)
 
                 // Send confirmation email
                 viewModel.sendConfirmationEmail(formData.email)

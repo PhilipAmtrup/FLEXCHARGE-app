@@ -61,7 +61,7 @@ dependencies {
     implementation("io.ktor:ktor-client-cio:2.3.2")
     implementation("io.ktor:ktor-client-content-negotiation:2.3.2")
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.2")
-    implementation("io.ktor:ktor-client-logging:2.3.2") // For debugging
+    implementation("io.ktor:ktor-client-logging:2.3.2")
 
     // ViewModel and LiveData
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
