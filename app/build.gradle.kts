@@ -40,7 +40,6 @@ android {
 }
 
 dependencies {
-
     // AndroidX Core Libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -74,6 +73,7 @@ dependencies {
     // Testing Libraries
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
+    testImplementation("io.ktor:ktor-client-mock:2.3.2") // MockEngine for testing
 
     // Android Testing
     testImplementation(libs.junit)

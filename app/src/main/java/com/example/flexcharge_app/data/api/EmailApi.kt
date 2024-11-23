@@ -4,8 +4,7 @@ import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 
-class EmailApi {
-    private val client = HttpClient()
+class EmailApi(private val client: HttpClient = HttpClient()) {
 
     // Sends a confirmation email to the user with detailed information.
     suspend fun sendConfirmationEmail(userEmail: String, problemCode: String, description: String): Boolean {
