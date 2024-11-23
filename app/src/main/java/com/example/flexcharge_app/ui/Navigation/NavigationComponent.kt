@@ -13,6 +13,7 @@ import com.example.flexcharge_app.ui.components.SimpleHeader
 import com.example.flexcharge_app.ui.components.SupportFormScreen
 import com.example.flexcharge_app.ui.problem.ProblemScreen
 import com.example.flexcharge_app.viewModel.DilemmasViewModel
+import com.example.flexcharge_app.ui.components.PaymentGuidePage
 
 @Composable
 fun NavigationComponent(navController: NavHostController, viewModel: DilemmasViewModel) {
@@ -33,6 +34,9 @@ fun NavigationComponent(navController: NavHostController, viewModel: DilemmasVie
         // Add a new route for the SupportFormScreen
         composable("SupportForm") {
             SupportFormScreen(navController = navController, startRoute = startRoute)
+        }
+        composable("PaymentGuide") {
+            PaymentGuidePage(navController = navController, startRoute = startRoute)
         }
 
     }
