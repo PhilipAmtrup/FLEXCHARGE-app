@@ -11,7 +11,7 @@ import org.junit.Test
 class EmailApiTest {
 /*
 Den nuværende test tjekker, om funktionen sendConfirmationEmail gør følgende korrekt:
-Sender en e-mail med de rigtige oplysninger (f.eks. email, problemkode, og beskrivelse).
+//Sender en e-mail med de rigtige oplysninger (f.eks. email, problemkode, og beskrivelse).
 Får det rigtige svar fra serveren:
  */
     @Test
