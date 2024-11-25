@@ -1,13 +1,19 @@
 package com.example.flexcharge_app.Navigation
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.flexcharge_app.ui.components.SimpleHeader
 import com.example.flexcharge_app.ui.components.SupportFormScreen
 import com.example.flexcharge_app.ui.problem.ProblemScreen
 import com.example.flexcharge_app.viewModel.DilemmasViewModel
+import com.example.flexcharge_app.ui.components.PaymentGuidePage
 import com.example.flexcharge_app.viewModel.SupportFormViewModel
 import com.example.flexcharge_app.viewModel.SupportFormViewModelFactory
 import com.example.flexcharge_app.data.api.EmailApi
@@ -37,13 +43,18 @@ fun NavigationComponent(navController: NavHostController, viewModel: DilemmasVie
             val supportFormViewModel: SupportFormViewModel = viewModel(
                 factory = SupportFormViewModelFactory(emailRepository)
             )
-
             // Send ViewModel som parameter til SupportFormScreen
             SupportFormScreen(
                 navController = navController,
                 startRoute = startRoute,
                 viewModel = supportFormViewModel
             )
+
+        }
+        composable("PaymentGuide") {
+            PaymentGuidePage(navController = navController, startRoute = startRoute)
+        }
+
         }
     }
-}
+

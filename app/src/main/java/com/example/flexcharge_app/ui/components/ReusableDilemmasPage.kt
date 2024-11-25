@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.flexcharge_app.R
+import com.example.flexcharge_app.ui.components.BottomBarWithLogo
 
 
 @Composable
@@ -35,53 +36,67 @@ fun ReusableDilemmaPage(
     startRoute: String,
     description: String
 ) {
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF5F5F5))
     ) {
-        SimpleHeader(
-            title = headerTitle,
-            navController = navController,
-            startRoute = startRoute
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Image(
-            painter = painterResource(id = imageRes),
-            contentDescription = "Dilemma Image",
-            contentScale = ContentScale.Crop,
+        // Main content: scrollable column
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 0.dp)
-                .height(200.dp)
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text(
-            text = contentTitle,
-            style = MaterialTheme.typography.bodyLarge.copy(fontSize = 20.sp),
-            color = Color.Black,
-            modifier = Modifier
-                .padding(vertical = 8.dp)
-                .align(Alignment.CenterHorizontally)
-        )
-
-        Text(
-            text = description
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        questions.forEachIndexed { index, questionText ->
-            ButtonRow(
-                text = questionText,
-                horizontalPadding = 0.dp,
-                onClick = onClicks.getOrElse(index) { {} }
+                .fillMaxSize()
+                .padding(bottom = 80.dp) // Reserve space for the bottom bar
+        ) {
+            SimpleHeader(
+                title = headerTitle,
+                navController = navController,
+                startRoute = startRoute
             )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Image(
+                painter = painterResource(id = imageRes),
+                contentDescription = "Dilemma Image",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 0.dp)
+                    .height(200.dp)
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Text(
+                text = contentTitle,
+                style = MaterialTheme.typography.bodyLarge.copy(fontSize = 20.sp),
+                color = Color.Black,
+                modifier = Modifier
+                    .padding(vertical = 8.dp)
+                    .align(Alignment.CenterHorizontally)
+            )
+
+            Text(
+                text = description,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            questions.forEachIndexed { index, questionText ->
+                ButtonRow(
+                    text = questionText,
+                    horizontalPadding = 10.dp,
+                    onClick = onClicks.getOrElse(index) { {} }
+                )
+            }
         }
+
+        // Fixed Bottom Bar
+        BottomBarWithLogo(
+            modifier = Modifier
+                .align(Alignment.BottomCenter) // This ensures the bar is fixed at the bottom
+        )
     }
 }
 
@@ -113,4 +128,5 @@ fun ButtonRow(text: String, horizontalPadding: Dp, showArrow: Boolean = true, on
             )
         }
     }
+
 }
