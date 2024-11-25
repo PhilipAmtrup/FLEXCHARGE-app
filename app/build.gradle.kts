@@ -74,6 +74,8 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
     testImplementation("io.ktor:ktor-client-mock:2.3.2") // MockEngine for testing
+    testImplementation ("io.cucumber:cucumber-java:7.11.2")
+    testImplementation ("io.cucumber:cucumber-junit:7.11.2")
 
     // Android Testing
     testImplementation(libs.junit)
