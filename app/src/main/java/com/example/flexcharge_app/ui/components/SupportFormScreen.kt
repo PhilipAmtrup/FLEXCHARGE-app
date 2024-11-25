@@ -54,7 +54,7 @@ fun SupportFormScreen(
     ) {
         // Header
         SimpleHeader(
-            title = "Support Form",
+            title = "Support",
             navController = navController,
             startRoute = startRoute
         )
@@ -89,7 +89,7 @@ fun SupportFormScreen(
         OutlinedTextField(
             value = emailState.value,
             onValueChange = { emailState.value = it },
-            label = { Text("Email Address") },
+            label = { Text("Email Addresse") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
@@ -101,7 +101,7 @@ fun SupportFormScreen(
         OutlinedTextField(
             value = phoneState.value,
             onValueChange = { phoneState.value = it },
-            label = { Text("Phone Number") },
+            label = { Text("Telefon nummer") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
@@ -113,7 +113,7 @@ fun SupportFormScreen(
         OutlinedTextField(
             value = descriptionState.value,
             onValueChange = { descriptionState.value = it },
-            label = { Text("Description of the Problem") },
+            label = { Text("Beskriv dit problem") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
@@ -131,9 +131,10 @@ fun SupportFormScreen(
                     descriptionState.value
                 )
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
         ) {
-            Text("Submit")
+            Text("Send")
         }
 
         // Snackbar for status message
