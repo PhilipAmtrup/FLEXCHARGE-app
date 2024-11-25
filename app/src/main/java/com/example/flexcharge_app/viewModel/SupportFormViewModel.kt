@@ -2,7 +2,6 @@ package com.example.flexcharge_app.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.flexcharge_app.data.model.SupportFormData
 import com.example.flexcharge_app.data.repository.EmailRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,7 +16,7 @@ class SupportFormViewModel(private val repository: EmailRepository) : ViewModel(
     private val _statusMessage = MutableStateFlow<String?>(null)
     val statusMessage: StateFlow<String?> get() = _statusMessage
 
-    fun saveProblemDetails(code: String, desc: String) {
+    private fun saveProblemDetails(code: String, desc: String) {
         problemCode = code
         description = desc
         println("Saved problem details: code=$problemCode, description=$description")

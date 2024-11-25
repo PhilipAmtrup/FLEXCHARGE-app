@@ -7,13 +7,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -21,14 +19,12 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.flexcharge_app.R
-import com.example.flexcharge_app.ui.components.BottomBarWithLogo
 
 
 @Composable
 fun ReusableDilemmaPage(
-    headerTitle: String,       // Title for the header
-    contentTitle: String,      // Title for the content within the page
+    headerTitle: String,
+    contentTitle: String,
     questions: List<String>,
     imageRes: Int,
     onClicks: List<() -> Unit>,
@@ -45,7 +41,7 @@ fun ReusableDilemmaPage(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(bottom = 80.dp) // Reserve space for the bottom bar
+                .padding(bottom = 80.dp)
         ) {
             SimpleHeader(
                 title = headerTitle,

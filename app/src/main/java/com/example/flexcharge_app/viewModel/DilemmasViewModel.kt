@@ -15,14 +15,13 @@ data class Dilemma(
 
 data class Question(
     val text: String,
-    val nextProblemCode: String?, // The code of the next problem, null if there is no next
+    val nextProblemCode: String?,
     val goesToSupportForm: Boolean,
     val goesToGuideForm: Boolean
 )
 
 class DilemmasViewModel : ViewModel() {
 
-    // Define all dilemmas with their unique problemCodes
     val dilemmas = listOf(
         Dilemma(
             problemCode = "Problem_0",
@@ -30,23 +29,23 @@ class DilemmasViewModel : ViewModel() {
             contentTitle = "Vælg et af punkterne",
             questions = listOf(
                 Question("Er du ny kunde?", "Problem_1", goesToSupportForm = false, goesToGuideForm = false),
-                Question("Jeg har problemer med min ladestion?", "Problem_2", goesToSupportForm = false, goesToGuideForm = false),
+                Question("Jeg har problemer med min ladestation?", "Problem_2", goesToSupportForm = false, goesToGuideForm = false),
                 Question("Har du problemer med betalingen af din opladning?", "Problem_3", goesToSupportForm = false, goesToGuideForm = false),
                 Question("Jeg har et andet problem?", "SupportForm", goesToSupportForm = true, goesToGuideForm = false)
             ),
             description = "",
-            imageRes = R.drawable.flexcharger_image
+            imageRes = R.drawable.forside
         ),
         Dilemma(
             problemCode = "Problem_1",
             title = "Er du ny kunde?",
             contentTitle = "Vælg et af punkterne",
             questions = listOf(
-                Question("Hvordan får jeg installeret en ny laderstation?", nextProblemCode = "SupportForm", goesToSupportForm = true, goesToGuideForm = false),
+                Question("Hvordan får jeg installeret en ny ladestation?", nextProblemCode = "SupportForm", goesToSupportForm = true, goesToGuideForm = false),
                 Question("Hvordan bruger jeg betalings app'en?", nextProblemCode = "PaymentGuide", goesToSupportForm = false, goesToGuideForm = true)
             ),
             description = "",
-            imageRes = R.drawable.flexcharger_image
+            imageRes = R.drawable.er_du_ny_kunde
         ),
         Dilemma(
             problemCode = "Problem_2",
@@ -82,7 +81,7 @@ class DilemmasViewModel : ViewModel() {
             ),
             description = "Vi har pt. ingen driftforstyrelser, så kontakt venligst din bank",
             contentTitle = "",
-            imageRes = R.drawable.flexcharger_image
+            imageRes = R.drawable.betling_afvist
         ),
         Dilemma(
             problemCode = "Problem_6",
@@ -92,7 +91,7 @@ class DilemmasViewModel : ViewModel() {
             ),
             description = "Der er pt. ingen driftsforstyrelser, så kontakt venligst din elbilforhandler",
             contentTitle = "",
-            imageRes = R.drawable.flexcharger_image
+            imageRes = R.drawable.fail_car
         ),
     )
 

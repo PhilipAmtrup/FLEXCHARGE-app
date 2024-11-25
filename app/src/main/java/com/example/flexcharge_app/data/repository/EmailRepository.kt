@@ -1,7 +1,7 @@
 package com.example.flexcharge_app.data.repository
 
 import com.example.flexcharge_app.data.api.EmailApi
-import com.example.flexcharge_app.data.model.SupportFormData
+
 
 class EmailRepository(private val api: EmailApi) {
 

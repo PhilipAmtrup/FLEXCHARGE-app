@@ -14,19 +14,20 @@ import com.example.flexcharge_app.R
 
 @Composable
 fun BottomBarWithLogo(modifier: Modifier = Modifier) {
+    val color = Color(0xFF000000)
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(Color.Gray) // Example background color
+            .background(color) // Example background color
             .padding(16.dp), // Padding around the bar
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
         Image(
-            painter = painterResource(id = R.drawable.flexcharge_logo), // Replace with your actual logo resource ID
+            painter = painterResource(id = R.drawable.flexcharge_logo),
             contentDescription = "Company Logo",
             contentScale = ContentScale.Crop,
-            modifier = Modifier.size(64.dp) // Adjust size as needed
+            modifier = Modifier.size(64.dp)
         )
     }
 }

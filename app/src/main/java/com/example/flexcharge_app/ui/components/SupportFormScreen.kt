@@ -14,15 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.flexcharge_app.R
-import com.example.flexcharge_app.ui.components.BottomBarWithLogo
-import com.example.flexcharge_app.data.model.SupportFormData
 import com.example.flexcharge_app.viewModel.SupportFormViewModel
 
 
@@ -63,7 +58,7 @@ fun SupportFormScreen(
 
         // Image at the top
         Image(
-            painter = painterResource(id = R.drawable.support_image), // Replace with your image resource
+            painter = painterResource(id = R.drawable.support_image),
             contentDescription = "Support Image",
             contentScale = ContentScale.Crop,
             modifier = Modifier
@@ -76,7 +71,7 @@ fun SupportFormScreen(
 
 
         Text(
-            text = "Indtast din email, telefon nummer og en beskrivelse af dit problem\n" +
+            text = "Indtast din email, mobilnummer og en beskrivelse af dit problem\n" +
                     "\nSå vil vi kontakte dig angående dit problem/forespørgsel",
             modifier = Modifier
                 .fillMaxWidth()
@@ -89,7 +84,7 @@ fun SupportFormScreen(
         OutlinedTextField(
             value = emailState.value,
             onValueChange = { emailState.value = it },
-            label = { Text("Email Addresse") },
+            label = { Text("Email Address:") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
@@ -101,7 +96,7 @@ fun SupportFormScreen(
         OutlinedTextField(
             value = phoneState.value,
             onValueChange = { phoneState.value = it },
-            label = { Text("Telefon nummer") },
+            label = { Text("Mobil:") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
@@ -113,7 +108,7 @@ fun SupportFormScreen(
         OutlinedTextField(
             value = descriptionState.value,
             onValueChange = { descriptionState.value = it },
-            label = { Text("Beskriv dit problem") },
+            label = { Text("Beskriv dit problem:") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
