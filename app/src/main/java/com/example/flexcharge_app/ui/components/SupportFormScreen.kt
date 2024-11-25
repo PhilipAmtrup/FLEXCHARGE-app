@@ -40,6 +40,7 @@ fun SupportFormScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF5F5F5))
+
     ) {
 
     // Listen to status messages from ViewModel
@@ -49,7 +50,7 @@ fun SupportFormScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF5F5F5))
-            .padding(16.dp) // skal måske slettes
+
     ) {
         // Header
         SimpleHeader(
@@ -76,7 +77,7 @@ fun SupportFormScreen(
 
         Text(
             text = "Indtast din email, telefon nummer og en beskrivelse af dit problem\n" +
-                    "\nSå vil en salgsmedarbejder kontakte dig inden for få dage",
+                    "\nSå vil vi kontakte dig angående dit problem/forespørgsel",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
