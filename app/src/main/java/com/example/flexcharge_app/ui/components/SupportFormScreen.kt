@@ -119,7 +119,7 @@ fun SupportFormScreen(
             maxLines = 10
         )
 
-        Spacer(modifier = Modifier.height(24.dp)) // måske 16.dp i stedet
+        Spacer(modifier = Modifier.height(16.dp))
 
         // Submit Button
         Button(
