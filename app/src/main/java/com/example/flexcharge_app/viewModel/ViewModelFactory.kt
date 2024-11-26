@@ -2,7 +2,7 @@ package com.example.flexcharge_app.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.flexcharge_app.data.repository.EmailRepository
+import com.example.flexcharge_app.model.repository.EmailRepository
 
 class SupportFormViewModelFactory(
     private val repository: EmailRepository

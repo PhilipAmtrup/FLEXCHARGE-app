@@ -1,4 +1,4 @@
-package com.example.flexcharge_app.ui.components
+package com.example.flexcharge_app.view.components
 
 
 import android.annotation.SuppressLint

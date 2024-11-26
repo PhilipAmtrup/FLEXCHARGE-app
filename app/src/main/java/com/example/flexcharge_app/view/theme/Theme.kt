@@ -1,4 +1,4 @@
-package com.example.flexcharge_app.ui.theme
+package com.example.flexcharge_app.view.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

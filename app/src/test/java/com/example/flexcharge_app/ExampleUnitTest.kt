@@ -1,6 +1,6 @@
 package com.example.flexcharge_app
 
-import com.example.flexcharge_app.data.api.EmailApi
+import com.example.flexcharge_app.model.api.EmailApi
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond

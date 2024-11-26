@@ -1,9 +1,9 @@
-package com.example.flexcharge_app.ui.problem
+package com.example.flexcharge_app.view.problem
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
-import com.example.flexcharge_app.ui.Navigation.FlexScreen
-import com.example.flexcharge_app.ui.components.ReusableDilemmaPage
+import com.example.flexcharge_app.view.Navigation.FlexScreen
+import com.example.flexcharge_app.view.components.ReusableDilemmaPage
 import com.example.flexcharge_app.viewModel.DilemmasViewModel
 
 class ProblemScreen(private val viewModel: DilemmasViewModel, private val problemCode: String) : FlexScreen {

@@ -1,4 +1,4 @@
-package com.example.flexcharge_app.ui.components
+package com.example.flexcharge_app.view.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

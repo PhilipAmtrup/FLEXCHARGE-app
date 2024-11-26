@@ -1,4 +1,4 @@
-package com.example.flexcharge_app.data.api
+package com.example.flexcharge_app.model.api
 
 import io.ktor.client.*
 import io.ktor.client.request.*
