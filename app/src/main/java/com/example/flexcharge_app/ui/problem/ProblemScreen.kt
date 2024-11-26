@@ -22,12 +22,15 @@ class ProblemScreen(private val viewModel: DilemmasViewModel, private val proble
             imageRes = dilemma.imageRes,
             onClicks = dilemma.questions.map { question ->
                 {
-                    val nextRoute = viewModel.getNextRoute(problemCode, question.text)
-                    nextRoute?.let {
-                        navController.navigate(it)
+                    if (question.goesToSupportForm) {
+                        navController.navigate("SupportForm/${question.errorCode}")
+                    } else {
+                        val nextRoute = viewModel.getNextRoute(problemCode, question.text)
+                        nextRoute?.let { navController.navigate(it) }
                     }
                 }
-            },
+            }
+,
             navController = navController, // Pass the navController
             startRoute = "Problem_0" // Pass the start route to determine if back button should be shown
         )

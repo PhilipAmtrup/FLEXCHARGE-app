@@ -31,22 +31,21 @@ fun NavigationComponent(navController: NavHostController, viewModel: DilemmasVie
             }
         }
 
-        // Add a new route for the SupportFormScreen
-        composable("SupportForm") {
-            // Opret afhængigheder
+        composable("SupportForm/{errorCode}") { backStackEntry ->
+            val errorCode = backStackEntry.arguments?.getString("errorCode") ?: ""
             val emailApi = EmailApi()
             val emailRepository = EmailRepository(emailApi)
             val supportFormViewModel: SupportFormViewModel = viewModel(
                 factory = SupportFormViewModelFactory(emailRepository)
             )
-            // Send ViewModel som parameter til SupportFormScreen
             SupportFormScreen(
                 navController = navController,
                 startRoute = startRoute,
-                viewModel = supportFormViewModel
+                viewModel = supportFormViewModel,
+                errorCode = errorCode // Pass errorCode here
             )
-
         }
+
         composable("PaymentGuide") {
             PaymentGuidePage(navController = navController, startRoute = startRoute)
         }

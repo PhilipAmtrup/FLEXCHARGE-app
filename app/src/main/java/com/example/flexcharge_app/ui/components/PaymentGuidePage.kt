@@ -1,6 +1,7 @@
 package com.example.flexcharge_app.ui.components
 
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -25,6 +26,7 @@ import com.example.flexcharge_app.R.drawable.*
 data class ImageTextItem(val title: String, val images: List<Int>, val text: String)
 
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun PaymentGuidePage(
     navController: NavController,
