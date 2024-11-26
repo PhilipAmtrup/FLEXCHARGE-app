@@ -6,14 +6,14 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.flexcharge_app.ui.components.SupportFormScreen
-import com.example.flexcharge_app.ui.problem.ProblemScreen
+import com.example.flexcharge_app.view.components.SupportFormScreen
+import com.example.flexcharge_app.view.problem.ProblemScreen
 import com.example.flexcharge_app.viewModel.DilemmasViewModel
-import com.example.flexcharge_app.ui.components.PaymentGuidePage
+import com.example.flexcharge_app.view.components.PaymentGuidePage
 import com.example.flexcharge_app.viewModel.SupportFormViewModel
 import com.example.flexcharge_app.viewModel.SupportFormViewModelFactory
-import com.example.flexcharge_app.data.api.EmailApi
-import com.example.flexcharge_app.data.repository.EmailRepository
+import com.example.flexcharge_app.model.api.EmailApi
+import com.example.flexcharge_app.model.repository.EmailRepository
 
 @Composable
 fun NavigationComponent(navController: NavHostController, viewModel: DilemmasViewModel) {

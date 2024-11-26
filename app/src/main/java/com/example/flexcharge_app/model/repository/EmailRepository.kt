@@ -1,6 +1,6 @@
-package com.example.flexcharge_app.data.repository
+package com.example.flexcharge_app.model.repository
 
-import com.example.flexcharge_app.data.api.EmailApi
+import com.example.flexcharge_app.model.api.EmailApi
 
 
 class EmailRepository(private val api: EmailApi) {
