@@ -132,19 +132,17 @@ fun SupportFormScreen(
             }
         }
 
-        // Snackbar for status message
         statusMessage?.let { message ->
-            Snackbar(
-                action = {
-                    TextButton(onClick = { viewModel.clearStatusMessage() }) {
-                        Text("Dismiss")
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
+                Snackbar(
+                    action = {
+                        TextButton(onClick = { viewModel.clearStatusMessage() }) {
+                            Text("OK")
+                        }
                     }
-                },
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(16.dp)
-            ) {
-                Text(message)
+                ) {
+                    Text(message)
+                }
             }
         }
     }
