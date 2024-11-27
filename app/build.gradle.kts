@@ -55,6 +55,9 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.1.0")
     implementation("androidx.navigation:navigation-compose:2.8.3")
 
+    // runtime for delays
+    implementation("androidx.compose.runtime:runtime:1.5.1")
+
     // Ktor for API Calls
     implementation("io.ktor:ktor-client-core:2.3.2")
     implementation("io.ktor:ktor-client-cio:2.3.2")

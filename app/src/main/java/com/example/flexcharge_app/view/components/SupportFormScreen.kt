@@ -7,6 +7,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,6 +22,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.flexcharge_app.R
 import com.example.flexcharge_app.viewModel.SupportFormViewModel
+import kotlinx.coroutines.launch
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
+
 
 @Composable
 fun SupportFormScreen(
@@ -29,6 +35,7 @@ fun SupportFormScreen(
     viewModel: SupportFormViewModel,
     errorCode: String
 ) {
+    val coroutineScope = rememberCoroutineScope()  // Remember a CoroutineScope
     // States for each text field
     val emailState = remember { mutableStateOf("") }
     val phoneState = remember { mutableStateOf("") }
@@ -118,15 +125,24 @@ fun SupportFormScreen(
 
             Button(
                 onClick = {
-                    // Save the errorCode in the ViewModel
-                    viewModel.saveProblemDetails(errorCode, descriptionState.value)
 
-                    // Validate and send the email
-                    viewModel.validateAndSend(
-                        emailState.value,
-                        phoneState.value,
-                        descriptionState.value
-                    )
+                    coroutineScope.launch {
+                        // Save the errorCode in the ViewModel
+                        viewModel.saveProblemDetails(errorCode, descriptionState.value)
+
+                        // Validate and send the email
+                        viewModel.validateAndSend(
+                            emailState.value,
+                            phoneState.value,
+                            descriptionState.value
+                        )
+                        // Clear text fields after sending a support form
+
+                        delay(1500)
+                        emailState.value = ""
+                        phoneState.value = ""
+                        descriptionState.value = ""
+                    }
                 },
                 modifier = Modifier
                     .fillMaxWidth()
