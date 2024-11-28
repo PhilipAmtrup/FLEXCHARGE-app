@@ -165,5 +165,10 @@ fun SupportFormScreen(
                 }
             }
         }
+        // Fixed Bottom Bar
+        BottomBarWithLogo(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+        )// Keep the bottom bar fixed at the bottom
     }
 }
