@@ -165,5 +165,10 @@ fun SupportFormScreen(
                 }
             }
         }
+
+        BottomBarWithLogo(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+        )
     }
 }
