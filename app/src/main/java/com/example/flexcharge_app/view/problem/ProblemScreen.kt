@@ -31,7 +31,7 @@ class ProblemScreen(private val viewModel: DilemmasViewModel, private val proble
                 }
             }
 ,
-            navController = navController, // Pass the navController
+            navController = navController, //
             startRoute = "Problem_0" // Pass the start route to determine if back button should be shown
         )
     }
