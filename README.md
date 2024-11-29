@@ -59,11 +59,11 @@ If you’d like to run the app from source code, you can use Android Studio. Her
    ```bash
    git clone https://github.com/PhilipAmtrup/FLEXCHARGE-app.git
 
-## Step 3: Add a running device on Android Studio
+### Step 3: Add a running device on Android Studio
 1. Press on Device Manager
 2. Choose an device (API 34 is recommended)
 
-## Step 4: Start Using the App
+### Step 4: Start Using the App
 1. Choose your device to run the app on
 2. Press the green play arrow to run the app
 3. You can now explore and use the app as designed!
