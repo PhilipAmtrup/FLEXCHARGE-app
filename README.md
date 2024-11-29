@@ -57,7 +57,7 @@ If you’d like to run the app from source code, you can use Android Studio. Her
 1. Open a terminal or command prompt.
 2. Run the following command to clone this repository:
    ```bash
-   git clone https://https://github.com/PhilipAmtrup/FLEXCHARGE-app.git
+   git clone https://github.com/PhilipAmtrup/FLEXCHARGE-app.git
 
 ## Step 3: Add a running device on Android Studio
 1. Press on Device Manager
