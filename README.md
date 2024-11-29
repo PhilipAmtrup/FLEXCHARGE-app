@@ -1,4 +1,5 @@
-Welcome to our Android App! This guide provides step-by-step instructions to help you install the app directly on your device or run it through Android Studio.
+# Welcome to Flexcharge app! 
+This guide provides step-by-step instructions to help you install the app directly on your device or run it through Android Studio.
 
 ---
 
@@ -6,13 +7,13 @@ Welcome to our Android App! This guide provides step-by-step instructions to hel
 
 1. [Installing the App via APK File](#installing-the-app-via-apk-file)
 2. [Running the App in Android Studio](#running-the-app-in-android-studio)
-3. [Troubleshooting](#troubleshooting)
+
 
 ---
 
 ## Installing the App via APK File
 
-To install the app on your Android device without using the Play Store, follow these steps:
+To install the app on your Android device follow these steps:
 
 ### Step 1: Download the APK
 1. Navigate to the [Releases](https://github.com/PhilipAmtrup/FLEXCHARGE-app/releases) section of this GitHub repository.
@@ -28,8 +29,19 @@ To install the app on your Android device without using the Play Store, follow t
 2. Tap on the file to start the installation.
 3. Follow the on-screen prompts to complete the installation.
 
-### Step 4: Launch the App
-Once the installation is complete, you can find the app in your app drawer. Tap the app icon to start using it!
+
+After installing the `.apk` file, follow these steps to launch and use the app:
+
+### Step 4: Locate the App
+1. Open the **App Drawer** on your Android device. This is where all installed apps are displayed.
+2. Look for the app icon with the name of the app.
+
+### Step 5: Open the App
+1. Tap the app icon to launch it.
+2. The app will load and display its home screen.
+
+### Step 6: Start Using the App
+- You can now explore and use the app as designed!
 
 ---
 
@@ -38,7 +50,7 @@ Once the installation is complete, you can find the app in your app drawer. Tap 
 If you’d like to run the app from source code, you can use Android Studio. Here's how:
 
 ### Step 1: Install Android Studio
-1. Download and install the latest version of [Android Studio] for your operating system.
+1. Download and install the latest version of Android Studio for your operating system.
 2. Follow the installation instructions provided on the Android Studio website.
 
 ### Step 2: Clone the Repository
@@ -46,3 +58,12 @@ If you’d like to run the app from source code, you can use Android Studio. Her
 2. Run the following command to clone this repository:
    ```bash
    git clone https://https://github.com/PhilipAmtrup/FLEXCHARGE-app.git
+
+## Step 3: Add a running device on Android Studio
+1. Press on Device Manager
+2. Choose an device (API 34 is recommended)
+
+## Step 4: Start Using the App
+1. Choose your device to run the app on
+2. Press the green play arrow to run the app
+3. You can now explore and use the app as designed!
