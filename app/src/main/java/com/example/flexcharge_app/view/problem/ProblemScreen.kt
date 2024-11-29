@@ -2,7 +2,7 @@ package com.example.flexcharge_app.view.problem
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
-import com.example.flexcharge_app.view.Navigation.FlexScreen
+import com.example.flexcharge_app.view.navigation.FlexScreen
 import com.example.flexcharge_app.view.components.ReusableDilemmaPage
 import com.example.flexcharge_app.viewModel.DilemmasViewModel
 

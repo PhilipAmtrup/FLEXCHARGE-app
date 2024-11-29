@@ -1,4 +1,4 @@
-package com.example.flexcharge_app.view.Navigation
+package com.example.flexcharge_app.view.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController

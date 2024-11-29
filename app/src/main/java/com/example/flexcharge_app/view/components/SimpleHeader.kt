@@ -32,8 +32,8 @@ fun SimpleHeader(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp), // Consistent padding on all sides
-        verticalAlignment = Alignment.CenterVertically // Align items vertically in the center
+            .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         if (showBackButton) {
             IconButton(onClick = { navController.popBackStack() }) {
@@ -50,9 +50,9 @@ fun SimpleHeader(
         Text(
             text = title,
             color = Color.Black,
-            style = MaterialTheme.typography.titleLarge, // Ensuring it uses consistent typography
+            style = MaterialTheme.typography.titleLarge,
             modifier = Modifier
-                .weight(1f) // Take the remaining space to ensure proper alignment
+                .weight(1f)
                 .padding(start = if (showBackButton) 8.dp else 8.dp)
         )
     }

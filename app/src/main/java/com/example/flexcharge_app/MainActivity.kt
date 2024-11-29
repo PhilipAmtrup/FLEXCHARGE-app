@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
-import com.example.flexcharge_app.Navigation.NavigationComponent
+import com.example.flexcharge_app.view.navigation.NavigationComponent
 import com.example.flexcharge_app.viewModel.DilemmasViewModel
 
 class MainActivity : ComponentActivity() {

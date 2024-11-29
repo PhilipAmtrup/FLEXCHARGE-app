@@ -35,8 +35,7 @@ fun SupportFormScreen(
     viewModel: SupportFormViewModel,
     errorCode: String
 ) {
-    val coroutineScope = rememberCoroutineScope()  // Remember a CoroutineScope
-    // States for each text field
+    val coroutineScope = rememberCoroutineScope()
     val emailState = remember { mutableStateOf("") }
     val phoneState = remember { mutableStateOf("") }
     val descriptionState = remember { mutableStateOf("") }
@@ -45,8 +44,8 @@ fun SupportFormScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState()) // Enable scrolling
-            .imePadding() // Add padding to adjust for the keyboard
+            .verticalScroll(rememberScrollState())
+            .imePadding()
             .background(Color(0xFFF5F5F5))
     ) {
         Column(
@@ -63,7 +62,7 @@ fun SupportFormScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Image at the top
+            // Image
             Image(
                 painter = painterResource(id = R.drawable.support_image),
                 contentDescription = "Support Image",
@@ -137,7 +136,6 @@ fun SupportFormScreen(
                             descriptionState.value
                         )
                         // Clear text fields after sending a support form
-
                         delay(1500)
                         emailState.value = ""
                         phoneState.value = ""
@@ -165,10 +163,9 @@ fun SupportFormScreen(
                 }
             }
         }
-        // Fixed Bottom Bar
         BottomBarWithLogo(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-        )// Keep the bottom bar fixed at the bottom
+        )
     }
 }

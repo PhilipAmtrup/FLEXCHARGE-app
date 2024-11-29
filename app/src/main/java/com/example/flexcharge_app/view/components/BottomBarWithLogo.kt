@@ -18,8 +18,8 @@ fun BottomBarWithLogo(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(color) // Example background color
-            .padding(16.dp), // Padding around the bar
+            .background(color)
+            .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {

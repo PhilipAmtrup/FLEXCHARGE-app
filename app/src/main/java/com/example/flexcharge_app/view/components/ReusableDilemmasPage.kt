@@ -37,7 +37,6 @@ fun ReusableDilemmaPage(
             .fillMaxSize()
             .background(Color(0xFFF5F5F5))
     ) {
-        // Main content: scrollable column
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -87,11 +86,9 @@ fun ReusableDilemmaPage(
                 )
             }
         }
-
-        // Fixed Bottom Bar
         BottomBarWithLogo(
             modifier = Modifier
-                .align(Alignment.BottomCenter) // This ensures the bar is fixed at the bottom
+                .align(Alignment.BottomCenter)
         )
     }
 }

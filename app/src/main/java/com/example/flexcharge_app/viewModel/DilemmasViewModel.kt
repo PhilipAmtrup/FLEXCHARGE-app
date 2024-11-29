@@ -17,7 +17,7 @@ data class Question(
     val nextProblemCode: String?,
     val goesToSupportForm: Boolean,
     val goesToGuideForm: Boolean,
-    val errorCode: String // New field for problem code
+    val errorCode: String
 )
 
 class DilemmasViewModel : ViewModel() {
@@ -93,7 +93,7 @@ class DilemmasViewModel : ViewModel() {
 
     fun getDilemmaByCode(problemCode: String): Dilemma {
         return dilemmas.firstOrNull { it.problemCode == problemCode }
-            ?: dilemmas.first() // Fallback to the first dilemma if not found
+            ?: dilemmas.first()
     }
 
     // Function to determine the next route based on the selected question
@@ -105,9 +105,9 @@ class DilemmasViewModel : ViewModel() {
             if (it.goesToSupportForm) {
                 "SupportForm" // Navigate to the support form
             } else if (it.goesToGuideForm) {
-                "PaymentGuide"
+                "PaymentGuide" // Navigate to the payment guide
             } else {
-                it.nextProblemCode // Navigate to the next dilemma page
+                it.nextProblemCode
             }
         }
     }

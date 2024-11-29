@@ -8,7 +8,7 @@ class EmailApi(private val client: HttpClient = HttpClient()) : EmailService {
 
     // Sends a confirmation email to the user with detailed information.
     override suspend fun sendConfirmationEmail(userEmail: String, problemCode: String, description: String): Boolean {
-        val apiKey = "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"
+        val apiKey = "API_KEY"
         val senderEmail = "emil012j2@gmail.com"
         println("Sending email to: $userEmail with problemCode: $problemCode and description: $description")
         return try {

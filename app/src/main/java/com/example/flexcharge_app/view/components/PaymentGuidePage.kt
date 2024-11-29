@@ -154,16 +154,15 @@ fun PaymentGuidePage(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(bottom = 80.dp) // Reserve space for the bottom bar
+                .padding(bottom = 80.dp)
         ) {
-            // Header
             SimpleHeader(
                 title = "Hvordan bruger jeg betalings app'en?",
                 navController = navController,
                 startRoute = startRoute
             )
 
-            // Content
+            // The content and design
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
@@ -175,12 +174,11 @@ fun PaymentGuidePage(
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 8.dp) // Add vertical spacing between items
+                            .padding(vertical = 8.dp)
                     ) {
-                        // Center the row of images
                         Row(
                             modifier = Modifier
-                                .align(Alignment.Center) // Align the Row to the center of the parent Box
+                                .align(Alignment.Center)
                                 .horizontalScroll(rememberScrollState()),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
@@ -188,15 +186,14 @@ fun PaymentGuidePage(
                                 Image(
                                     painter = painterResource(id = imageRes),
                                     contentDescription = null,
-                                    contentScale = ContentScale.Fit, // Ensures the full image is shown
+                                    contentScale = ContentScale.Fit,
                                     modifier = Modifier
-                                        .fillMaxWidth() // Image fills the width of the screen
-                                        .aspectRatio(16f / 9f) // Maintain a 16:9 aspect ratio
+                                        .fillMaxWidth()
+                                        .aspectRatio(16f / 9f)
                                         .padding(vertical = 8.dp)
                                 )
                             }
                         }
-                        // Title for the section
                         Text(
                             text = item.title,
                             style = MaterialTheme.typography.headlineSmall.copy(
@@ -205,8 +202,6 @@ fun PaymentGuidePage(
                             ),
                             modifier = Modifier.padding(bottom = 8.dp)
                         )
-
-                        // Add text below the images
                         Text(
                             text = item.text,
                             style = MaterialTheme.typography.bodyLarge,
@@ -218,11 +213,9 @@ fun PaymentGuidePage(
                 }
             }
         }
-
-        // Fixed Bottom Bar
         BottomBarWithLogo(
             modifier = Modifier
-                .align(Alignment.BottomCenter) // Keep the bottom bar fixed at the bottom
+                .align(Alignment.BottomCenter)
         )
     }
 }
