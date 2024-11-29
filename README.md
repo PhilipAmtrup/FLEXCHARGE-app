@@ -19,7 +19,7 @@ To install the app on your Android device follow these steps:
 1. Navigate to the [Releases](https://github.com/PhilipAmtrup/FLEXCHARGE-app/releases) section of this GitHub repository.
 2. Download the latest `.apk` file to your device.
 
-### Step 2: Enable Unknown Sources
+### Step 2: Enable Unknown Sources (if necessary for you)
 1. Open your device's **Settings**.
 2. Navigate to **Security** (or **Privacy** on some devices).
 3. Enable **Install Unknown Apps** or **Unknown Sources** for the browser or file manager you're using.
