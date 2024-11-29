@@ -15,7 +15,7 @@ Welcome to our Android App! This guide provides step-by-step instructions to hel
 To install the app on your Android device without using the Play Store, follow these steps:
 
 ### Step 1: Download the APK
-1. Navigate to the [Releases](https://github.com/FLEXCHARGE-app/releases) section of this GitHub repository.
+1. Navigate to the [Releases](https://github.com/PhilipAmtrup/FLEXCHARGE-app/releases) section of this GitHub repository.
 2. Download the latest `.apk` file to your device.
 
 ### Step 2: Enable Unknown Sources
@@ -45,4 +45,4 @@ If you’d like to run the app from source code, you can use Android Studio. Her
 1. Open a terminal or command prompt.
 2. Run the following command to clone this repository:
    ```bash
-   git clone https://github.com/FLEXCHARGE-app.git
+   git clone https://https://github.com/PhilipAmtrup/FLEXCHARGE-app.git
